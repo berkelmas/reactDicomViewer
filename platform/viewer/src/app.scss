@@ -1,0 +1,15 @@
+.custom-toolbar-icon {
+  fill: #9ccef9;
+}
+
+.custom-toolbar-item-text {
+  color: #9ccef9;
+}
+
+.custom-toolbar-item-container:hover .custom-toolbar-item-text {
+  color: white;
+}
+
+.custom-toolbar-item-container:hover .custom-toolbar-icon {
+  fill: white;
+}
