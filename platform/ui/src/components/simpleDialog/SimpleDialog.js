@@ -57,18 +57,22 @@ class SimpleDialog extends Component {
             style={this.props.componentStyle}
           >
             <form>
-              <div className="header">
+              <div className="header" style={{ borderBottom: 'none' }}>
                 <span className="closeBtn" onClick={this.onClose}>
                   <span className="closeIcon">x</span>
                 </span>
                 <h4 className="title">{this.props.headerTitle}</h4>
               </div>
               <div className="content">{this.props.children}</div>
-              <div className="footer">
+              <div className="footer" style={{ margin: 0, borderTop: 'none' }}>
                 <button className="btn btn-default" onClick={this.onClose}>
                   Cancel
                 </button>
-                <button className="btn btn-primary" onClick={this.onConfirm}>
+                <button
+                  style={{ color: 'white' }}
+                  className="btn btn-primary"
+                  onClick={this.onConfirm}
+                >
                   Confirm
                 </button>
               </div>

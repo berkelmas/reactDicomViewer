@@ -1,26 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { SimpleDialog } from 'react-viewerbase';
-import Microphone from '../../../ui/src/elements/Icon/icons/microphone.svg';
+import { SimpleDialog } from '@ohif/ui';
 import { useLocation } from 'react-router-dom';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
 import Draggable from 'react-draggable';
-
-function PaperComponent(props) {
-  return (
-    <Draggable
-      handle="#draggable-dialog-title"
-      cancel={'[class*="MuiDialogContent-root"]'}
-    >
-      <Paper {...props} />
-    </Draggable>
-  );
-}
+import Microphone from '../../../ui/src/elements/Icon/icons/microphone.svg';
+import VoiceRecorder from './VoiceRecorder/VoiceRecorder';
 
 const RecordAudioComponent = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -72,7 +55,7 @@ const RecordAudioComponent = () => {
             top: 0,
             right: 0,
             zIndex: '9999',
-            minWidth: '400px',
+            minWidth: '900px',
           }}
         >
           <SimpleDialog
@@ -81,38 +64,10 @@ const RecordAudioComponent = () => {
             onClose={() => setIsDialogOpen(false)}
             onConfirm={() => setIsDialogOpen(false)}
           >
-            <div style={{ color: 'red' }}>I can now be moved around!</div>
+            <VoiceRecorder />
           </SimpleDialog>
         </div>
       </Draggable>
-      {/* <Dialog
-        open={isDialogOpen}
-        PaperComponent={PaperComponent}
-        aria-labelledby="draggable-dialog-title"
-        onClose={() => setIsDialogOpen(false)}
-      >
-        <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
-          Subscribe
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            autoFocus
-            onClick={() => setIsDialogOpen(false)}
-            color="primary"
-          >
-            Cancel
-          </Button>
-          <Button onClick={() => setIsDialogOpen(false)} color="primary">
-            Subscribe
-          </Button>
-        </DialogActions>
-      </Dialog> */}
     </>
   );
 };
